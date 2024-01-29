@@ -26,6 +26,7 @@ public class SpringSecurityConfig {
                 requests.requestMatchers("/userOperations/getUserDetails/**").hasRole("ADMIN")
                         .requestMatchers("/userOperations/checkHealth").permitAll()
                         .requestMatchers("/userOperations/createUser").hasRole("ADMIN")
+                        .requestMatchers("/restApi/**").hasRole("ADMIN")
                         .requestMatchers(PathRequest.toH2Console()).permitAll());
         http.httpBasic(Customizer.withDefaults());
         http.csrf(AbstractHttpConfigurer::disable);
